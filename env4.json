@@ -1,0 +1,33 @@
+{
+	"id": "3433c271-e0b3-41ae-a229-9660e485281a",
+	"name": "Santa",
+	"values": [
+		{
+			"key": "email",
+			"value": "tanyajoooe@gmail.com",
+			"type": "default",
+			"enabled": false
+		},
+		{
+			"key": "santsURL",
+			"value": "https://staging.lpitko.ru/api/",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "cookie",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "password",
+			"value": "test1234",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2022-12-10T20:53:33.356Z",
+	"_postman_exported_using": "Postman/10.5.8"
+}
