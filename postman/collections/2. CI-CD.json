@@ -12,13 +12,11 @@
 				{
 					"listen": "test",
 					"script": {
+						"id": "e760ec1a-254b-4f77-9d1e-ec1dea8e285b",
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
+							""
 						],
-						"type": "text/javascript",
-						"id": "e760ec1a-254b-4f77-9d1e-ec1dea8e285b"
+						"type": "text/javascript"
 					}
 				}
 			],
