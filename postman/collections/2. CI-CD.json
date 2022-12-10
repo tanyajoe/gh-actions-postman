@@ -45,30 +45,6 @@
 			"response": []
 		},
 		{
-			"name": "account",
-			"id": "a8a01f2e-1af7-4ba1-9e16-1b79fb913896",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Cookie",
-						"value": "{{cookie}}",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "{{santsURL}}account",
-					"host": [
-						"{{santsURL}}account"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Login",
 			"event": [
 				{
@@ -171,6 +147,30 @@
 					],
 					"path": [
 						"password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "account",
+			"id": "a8a01f2e-1af7-4ba1-9e16-1b79fb913896",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "{{cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{santsURL}}account",
+					"host": [
+						"{{santsURL}}account"
 					]
 				}
 			},
