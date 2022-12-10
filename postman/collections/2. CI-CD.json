@@ -1,0 +1,282 @@
+{
+	"info": {
+		"_postman_id": "af8a0e1f-f550-45cb-ad16-41d4186ef179",
+		"name": "2. CI-CD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "9473224-af8a0e1f-f550-45cb-ad16-41d4186ef179"
+	},
+	"item": [
+		{
+			"name": "session",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "e760ec1a-254b-4f77-9d1e-ec1dea8e285b"
+					}
+				}
+			],
+			"id": "981980d5-760f-4c6c-8a18-caa8ba740a34",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "{{cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{santsURL}}session",
+					"host": [
+						"{{santsURL}}session"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "account",
+			"id": "a8a01f2e-1af7-4ba1-9e16-1b79fb913896",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "{{cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{santsURL}}account",
+					"host": [
+						"{{santsURL}}account"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json()\r",
+							"console.log(response)"
+						],
+						"type": "text/javascript",
+						"id": "4088bdbe-91ee-463f-995d-c602dce07db2"
+					}
+				}
+			],
+			"id": "61a27676-939f-4e38-b7eb-9055c30de492",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"tanyajoooe@gmail.com\",\r\n    \"password\": \"test1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{santsURL}}login",
+					"host": [
+						"{{santsURL}}login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change pass",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"//console.log(JSON.parse(request.data));\r",
+							"\r",
+							"const reqData = JSON.parse(request.data);\r",
+							"console.log(reqData)\r",
+							"console.log(reqData.password)\r",
+							"pm.environment.set(\"password\", reqData.password);\r",
+							"\r",
+							"const response = pm.response.json()\r",
+							"console.log(response)\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"id": "6abd0426-d212-497e-be92-ca885d583394"
+					}
+				}
+			],
+			"id": "108dd031-8e3c-4346-a5ca-bdd45108f92c",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "{{cookie}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"password\": \"{{$randomPassword}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{santsURL}}account/password",
+					"host": [
+						"{{santsURL}}account"
+					],
+					"path": [
+						"password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json()\r",
+							"console.log(response)"
+						],
+						"type": "text/javascript",
+						"id": "a82a76ac-9a02-4219-a1bf-e7fdf1cc2c8e"
+					}
+				}
+			],
+			"id": "0043fe14-5e5f-41c2-a198-e7b8f6cf2526",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"tanyajoooe@gmail.com\",\r\n    \"password\": \"{{password}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{santsURL}}login",
+					"host": [
+						"{{santsURL}}login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change pass Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const reqData = JSON.parse(request.data);\r",
+							"console.log(reqData)\r",
+							"console.log(reqData.password)\r",
+							"pm.environment.set(\"password\", reqData.password);\r",
+							"\r",
+							"const response = pm.response.json()\r",
+							"console.log(response)"
+						],
+						"type": "text/javascript",
+						"id": "86662769-992e-49e1-9e9e-3ec9695226f0"
+					}
+				}
+			],
+			"id": "fd6c8124-55a7-4e22-8150-f54404de7f6a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "{{cookie}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"password\": \"test1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{santsURL}}account/password",
+					"host": [
+						"{{santsURL}}account"
+					],
+					"path": [
+						"password"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
